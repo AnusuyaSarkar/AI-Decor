@@ -55,6 +55,11 @@ const createProduct = asyncHandler(async (req, res) => {
     throw new AppError('sellerId is required when creating products as admin', 400);
   }
 
+  const seller = await Seller.findById(sellerId);
+  if (!seller) {
+    throw new AppError('Seller not found', 404);
+  }
+
   const product = await Product.create({
     title: req.body.title,
     description: req.body.description,

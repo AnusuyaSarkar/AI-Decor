@@ -142,6 +142,12 @@ Response:
 #### Seller dashboard
 `GET /api/sellers/dashboard`
 
+#### Seller products for dashboard
+`GET /api/sellers/dashboard/products?page=1&limit=10&status=active`
+
+#### Seller reviews for dashboard
+`GET /api/sellers/dashboard/reviews?page=1&limit=10`
+
 ### Products
 
 #### Create product

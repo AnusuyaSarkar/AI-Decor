@@ -51,4 +51,24 @@ const productSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+productSchema.index({ title: 'text', description: 'text', category: 'text' });
+
+productSchema.set('toJSON', {
+  virtuals: true,
+  versionKey: false,
+  transform: (_doc, ret) => {
+    delete ret.__v;
+    return ret;
+  },
+});
+
+productSchema.set('toObject', {
+  virtuals: true,
+  versionKey: false,
+  transform: (_doc, ret) => {
+    delete ret.__v;
+    return ret;
+  },
+});
+
 module.exports = mongoose.model('Product', productSchema);

@@ -52,6 +52,30 @@ const userSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+userSchema.set('toJSON', {
+  virtuals: true,
+  versionKey: false,
+  transform: (_doc, ret) => {
+    delete ret.password;
+    delete ret.passwordResetToken;
+    delete ret.passwordResetExpires;
+    delete ret.__v;
+    return ret;
+  },
+});
+
+userSchema.set('toObject', {
+  virtuals: true,
+  versionKey: false,
+  transform: (_doc, ret) => {
+    delete ret.password;
+    delete ret.passwordResetToken;
+    delete ret.passwordResetExpires;
+    delete ret.__v;
+    return ret;
+  },
+});
+
 userSchema.pre('save', async function savePassword(next) {
   if (!this.isModified('password')) {
     return next();

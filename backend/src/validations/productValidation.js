@@ -6,6 +6,8 @@ const productValidation = [
   body('category').trim().notEmpty().withMessage('Category is required'),
   body('price').isFloat({ min: 0 }).withMessage('Price must be a non-negative number'),
   body('stock').optional().isInt({ min: 0 }).withMessage('Stock must be a non-negative integer'),
+  body('sellerId').optional().isMongoId().withMessage('Valid sellerId is required'),
+  body('images').optional(),
 ];
 
 const productUpdateValidation = [
@@ -14,6 +16,7 @@ const productUpdateValidation = [
   body('category').optional().trim().notEmpty().withMessage('Category cannot be empty'),
   body('price').optional().isFloat({ min: 0 }).withMessage('Price must be a non-negative number'),
   body('stock').optional().isInt({ min: 0 }).withMessage('Stock must be a non-negative integer'),
+  body('images').optional(),
 ];
 
 const productIdValidation = [param('id').isMongoId().withMessage('Invalid product id')];
