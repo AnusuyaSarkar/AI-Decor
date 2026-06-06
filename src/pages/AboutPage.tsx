@@ -1,6 +1,4 @@
-import { motion } from 'framer-motion'
 import { Card, SectionHeading } from '../components/ui'
-import { teamMembers } from '../data/mockData'
 import styles from '../styles/pages.module.css'
 
 export function AboutPage() {
@@ -32,19 +30,6 @@ export function AboutPage() {
             </Card>
           </div>
 
-          <SectionHeading eyebrow="Team" title="The people behind the platform" />
-          <div className={styles.teamGrid}>
-            {teamMembers.map((member) => (
-              <motion.div key={member.name} whileHover={{ y: -5 }}>
-                <Card className={styles.teamCard}>
-                  <img src={member.image} alt={member.name} />
-                  <h3>{member.name}</h3>
-                  <p>{member.role}</p>
-                  <span>{member.bio}</span>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
         </div>
       </section>
     </div>

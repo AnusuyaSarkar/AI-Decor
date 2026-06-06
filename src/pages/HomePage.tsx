@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { Button, Card, SectionHeading } from '../components/ui'
-import { categories, featureCards, testimonials } from '../data/mockData'
+import { categories, featureCards } from '../data/mockData'
 import styles from '../styles/pages.module.css'
 
 export function HomePage() {
@@ -75,29 +75,6 @@ export function HomePage() {
                 <span className={styles.featureIcon}>{feature.icon}</span>
                 <h3>{feature.title}</h3>
                 <p>{feature.description}</p>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className={`${styles.altSection} section-gap`}>
-        <div className="page-shell">
-          <SectionHeading
-            eyebrow="Testimonials"
-            title="Loved by homeowners, stylists, and sellers"
-          />
-          <div className={styles.testimonialGrid}>
-            {testimonials.map((item) => (
-              <Card key={item.name} className={styles.testimonialCard}>
-                <div className={styles.avatarRow}>
-                  <img src={item.avatar} alt={item.name} />
-                  <div>
-                    <h3>{item.name}</h3>
-                    <p>{item.role}</p>
-                  </div>
-                </div>
-                <p className={styles.quote}>“{item.quote}”</p>
               </Card>
             ))}
           </div>

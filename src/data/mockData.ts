@@ -17,7 +17,6 @@ export const navItems: NavItem[] = [
   { label: 'AI Assistant', path: '/assistant' },
   { label: 'Marketplace', path: '/marketplace' },
   { label: 'About', path: '/about' },
-  { label: 'Contact', path: '/contact' },
   { label: 'Profile', path: '/profile' },
   { label: 'Dashboard', path: '/dashboard' },
 ]
